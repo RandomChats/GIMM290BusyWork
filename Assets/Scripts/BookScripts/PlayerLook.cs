@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerLook : MonoBehaviour  {
+public class PlayerLook : MonoBehaviour  {
 
     public enum RotationAxes {
         MouseXandY = 0,
