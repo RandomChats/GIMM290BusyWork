@@ -19,7 +19,7 @@ public class BookGameController : MonoBehaviour {
             Vector3 change = new Vector3(1, height, 1);
             enemy = Instantiate(enemyPrefab) as GameObject;
             enemy.transform.localScale = change;
-            Color randomColor = new Color(Random.Range(0, 255)/255f, Random.Range(0, 255)/255f, Random.Range(0, 255)/255f, 1);
+            Color randomColor = new Color(Random.Range(0, 255)/255f, Random.Range(0, 255)/255f, Random.Range(0, 255)/255f, 0.75f);
             var enemyRenderer = enemy.GetComponent<Renderer>();
             enemyRenderer.material.color = randomColor;
             Debug.Log(randomColor);
