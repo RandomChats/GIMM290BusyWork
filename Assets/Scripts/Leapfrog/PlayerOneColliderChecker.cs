@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class PlayerOneColliderChecker : MonoBehaviour {
     // Start is called before the first frame update
+    [SerializeField] private GameManager gameManager;
     private GameObject player;
     private int playerOneScore = 0;
+
 
     void Start() {
         player = this.gameObject;
@@ -27,6 +29,7 @@ public class PlayerOneColliderChecker : MonoBehaviour {
 
     IEnumerator CollisionChecker() {
         playerOneScore++;
+        gameManager.PlayerOnePoints += 1;
         Debug.Log("Player One Score: " + playerOneScore);
         yield return new WaitForSeconds(0.8f);
     }
