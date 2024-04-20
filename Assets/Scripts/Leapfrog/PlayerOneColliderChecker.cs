@@ -10,6 +10,7 @@ public class PlayerOneColliderChecker : MonoBehaviour {
     private int playerOneScore = 0;
 
 
+
     void Start() {
         player = this.gameObject;
     }

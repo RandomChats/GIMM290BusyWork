@@ -9,9 +9,11 @@ public class SecondPlayerController : MonoBehaviour
   public float rotationSpeed = 90;
   public float gravity = -20f;
   public float jumpSpeed = 15;
+  private float pushForce = 3.0f;
   CharacterController characterController;
   Vector3 moveVelocity;
   Vector3 turnVelocity;
+  private ControllerColliderHit contact;
 
   private bool playerGrounded = true;
   void Awake()
@@ -55,5 +57,32 @@ public class SecondPlayerController : MonoBehaviour
     moveVelocity.y += gravity * Time.deltaTime;
     characterController.Move(moveVelocity * Time.deltaTime);
     transform.Rotate(turnVelocity * Time.deltaTime);
+  }
+  private void OnControllerColliderHit(ControllerColliderHit hit) {
+    contact = hit;
+
+    Rigidbody body = hit.collider.attachedRigidbody;
+    if (body != null && !body.isKinematic && body.CompareTag("LevelObjects")) {
+      body.velocity = hit.moveDirection * pushForce;
+    }
+  }
+
+  public void playerStagger() {
+    StartCoroutine(PlayerStagger());
+  }
+
+  private IEnumerator PlayerStagger() {
+    float oldSpeed = speed;
+    float oldRot = rotationSpeed;
+    
+    Debug.Log("Sloooow");
+    speed = speed/2;
+    rotationSpeed = rotationSpeed / 2;
+
+    yield return new WaitForSeconds(1.5f);
+
+    speed = oldSpeed;
+    rotationSpeed = oldRot;
+    yield return new WaitForSeconds(0.3f);
   }
 }
