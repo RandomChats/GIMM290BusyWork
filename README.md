@@ -12,3 +12,11 @@ requirements, I want to add a split-screen camera and fine-tune the player movem
 Unity 6 README:
 
 Added text boxes that displayed score, and went away and showed which player won
+
+Unity 7 & 8 README:
+Added an inventory system for collectable powerups you can get in a game
+
+additionally, I added a new shooting mechanic for players to stagger the other frog, and added 
+split-screen to make the game easier to play for 2 players
+
+for Player 1, it's E to shoot, and for Player 2, it's U to shoot
